@@ -5,21 +5,22 @@ const argvSys = () => {
         // console.log('Please provide all arguments: node mongo.js <password> <person> <number-phone>')
         const person = connectMongo(process.argv[2])
         getPerson(person)
-        
-        
+
+
 
     } else {
         const [, , password, name, phone] = process.argv;
         const person = connectMongo(password)
+        console.log(name, phone)
         createPerson(name, phone, person)
-        
+
     }
 }
 
 
 
 const connectMongo = (pass) => {
-    const url = `mongodb+srv://carlos8788:${pass}@fullstackopen.7rvc4cy.mongodb.net/persons?retryWrites=true&w=majority`
+    const url = `mongodb+srv://carlos8788:${pass}@fullstackopencluster.om91lrc.mongodb.net/fullStackOpen?retryWrites=true&w=majority&appName=fullStackOpenCluster`
     mongoose.connect(url)
 
     const personSchema = new mongoose.Schema({
@@ -45,22 +46,22 @@ const createPerson = (name, number, Person) => {
                     result.forEach(person => console.log(person))
                     mongoose.connection.close()
                 })
-                
+
         )
-        
+
 }
 
 const getPerson = (Person) => {
     Person.find()
-    .then(result => {
-        console.log('phonebook:');
-        result.map(pers => {
-            console.log(`${pers.name} ${pers.number}`)
+        .then(result => {
+            console.log('phonebook:');
+            result.map(pers => {
+                console.log(`${pers.name} ${pers.number}`)
+            })
+            mongoose.connection.close()
         })
-        mongoose.connection.close()
-    })
-    
-        
+
+
 }
 
 module.exports = connectMongo
