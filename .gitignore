@@ -29,3 +29,4 @@ yarn-error.log*
 src
 # part3
 apuntes
+.vscode/
