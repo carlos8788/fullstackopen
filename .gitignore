@@ -31,3 +31,5 @@ src
 # part3
 apuntes
 .vscode/
+package-lock.json
+/dist
