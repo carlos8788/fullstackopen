@@ -33,3 +33,4 @@ apuntes
 .vscode/
 package-lock.json
 /dist
+*.yaml
