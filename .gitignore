@@ -1,8 +1,9 @@
 # See | for more about ignoring files.
 #dev
+dist/
 /part1
 /part2
-/part3
+part3
 part3/
 /img
 .env
