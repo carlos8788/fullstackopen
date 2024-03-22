@@ -1,0 +1,36 @@
+# See | for more about ignoring files.
+#dev
+/part1
+/part2
+/part3
+part3/
+/img
+.env
+README.md
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/src_apuntes
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+# part3
+apuntes
+.vscode/
+package-lock.json
+/dist
+*.yaml
