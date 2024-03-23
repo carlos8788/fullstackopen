@@ -35,3 +35,4 @@ package-lock.json
 /dist
 *.yaml
 *.ps1
+coverage/
