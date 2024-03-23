@@ -34,3 +34,4 @@ apuntes
 package-lock.json
 /dist
 *.yaml
+*.ps1
