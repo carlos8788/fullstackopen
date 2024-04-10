@@ -4,11 +4,13 @@ import { getNotes, createNote, updateNote } from './requests'
 
 const App = () => {
   const queryClient = useQueryClient()
+
   const newNoteMutation = useMutation({
     mutationFn: createNote,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['notes'] })
-    },
+    onSuccess: (newNote) => {
+      const notes = queryClient.getQueryData(['notes'])
+      queryClient.setQueryData(['notes'], notes.concat(newNote))
+    }
   })
 
 
@@ -23,7 +25,7 @@ const App = () => {
   const updateNoteMutation = useMutation({
     mutationFn: updateNote,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['notes'] })
+      queryClient.invalidateQueries('notes')
     },
   })
 
